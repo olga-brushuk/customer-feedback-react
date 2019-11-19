@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class CustomerFeedback extends React.Component {
@@ -49,27 +48,16 @@ class CustomerFeedback extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="email" 
-                     name="email" 
-                     value={this.state.formControls.email.value} 
-                     onChange={this.changeHandler} 
-              />
-
-              <input type="text" 
-                     name="name" 
-                     value={this.state.formControls.name.value} 
-                     onChange={this.changeHandler} 
-              />
-
-              <textarea 
-                     name="comment" 
-                     value={this.state.formControls.comment.value} 
-                     onChange={this.changeHandler} 
-              />
-
-        {/* <textarea name="comment" onChange={this.handleCommentChange} value={this.state.comment} placeholder="Please enter your comment" /> */} 
-
+      <form onSubmit={this.handleSubmit}>      
+        <label for="name" className="hidden">Enter your email</label>
+        <input type="text" name="name" value={this.state.formControls.name.value} onChange={this.changeHandler} placeholder="Enter your name" />
+        
+        <label for="email" className="hidden">Enter your name</label>
+        <input type="email" name="email" value={this.state.formControls.email.value} onChange={this.changeHandler} placeholder="Enter your email" />
+        
+        <label for="comment" className="hidden">Enter your comment</label>
+        <textarea name="comment" value={this.state.formControls.comment.value} onChange={this.changeHandler} placeholder="Please leave your comment" />
+        
         <input type="submit" value="Submit" />
       </form>
     );

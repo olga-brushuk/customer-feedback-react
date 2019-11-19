@@ -1,3 +1,10 @@
+Clone the repository from github. Make sure you have node and npm installed, if not, download from here: 
+
+### Run `npm install`
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
