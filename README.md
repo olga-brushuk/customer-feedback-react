@@ -2,6 +2,10 @@ Clone the repository from github. Make sure you have node and npm installed, if 
 
 ### Run `npm install`
 
+### Run `grunt`
+
+### Run `npm start`
+
 
 
 

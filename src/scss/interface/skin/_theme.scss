@@ -1,0 +1,79 @@
+// big grey rhombuses with a semi-transparent rhombus image inside that go onto the entire page
+.rhombus-bg {
+  position: absolute;
+  top: 0;
+
+  &.rhombus-bg--one {
+    top: -8%;
+    right: -100%;
+  }
+
+  &.rhombus-bg--two {
+    top: 6%;
+    left: -95%;
+
+    img {
+      width: 90%;
+    }
+  }
+
+  &.rhombus-bg--three {
+    top: 30%;
+    right: -90%;
+    opacity: .85;
+
+    img {
+      width: 70%;
+    }
+  }
+
+  &.rhombus-bg--four {
+    top: auto;
+    bottom: 15%;
+    left: -110%;
+    opacity: .9;
+
+    img {
+      width: 110%;
+    }
+  }
+}
+
+.homepage {
+
+  main.main {
+    padding-top: 0;
+  }
+
+  // big grey rhombuses with a semi-transparent rhombus image inside that go onto the entire page
+  .rhombus-bg {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+
+    &.rhombus-bg--one {
+      top: -83%;
+      left: -35%;
+      right: auto;
+    }
+
+    &.rhombus-bg--two {
+      left: auto;
+      right: -83%;
+    }
+
+    &.rhombus-bg--three {
+      top: 80%;
+      right: auto;
+      left: -85%;    
+    }
+
+    &.rhombus-bg--four {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

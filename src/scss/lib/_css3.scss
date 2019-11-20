@@ -1,0 +1,79 @@
+//
+// Author:   Matt Hinchliffe <www.maketea.co.uk>
+// Modified: 04/06/2013
+//
+
+//
+// Box sizing
+//
+ @mixin box-sizing($sizing) {
+	-webkit-box-sizing:$sizing;
+	   -moz-box-sizing:$sizing;
+	        box-sizing:$sizing;
+}
+
+
+//
+// Transforms <http://www.w3.org/TR/css3-2d-transforms/#transform-functions>
+//
+@mixin scale($scale) {
+	-webkit-transform:scale($scale);
+	    -ms-transform:scale($scale);
+	        transform:scale($scale);
+}
+@mixin rotate($angle:90deg) {
+	-webkit-transform:rotate($angle);
+	   -moz-transform:rotate($angle);
+	    -ms-transform:rotate($angle);
+	        transform:rotate($angle);
+}
+@mixin rotateY($angle:90deg) {
+	-webkit-transform:rotateY($angle);
+	   -moz-transform:rotateY($angle);
+	    -ms-transform:rotateY($angle);
+	        transform:rotateY($angle);
+}
+@mixin translate($x, $y) {
+	-webkit-transform:translate($x, $y);
+	    -ms-transform:translate($x, $y);
+	        transform:translate($x, $y);
+}
+@mixin translate3d($x, $y, $z) {
+	-webkit-transform:translate3d($x, $y, $z);
+	    -ms-transform:translate3d($x, $y, $z);
+	        transform:translate3d($x, $y, $z);
+}
+@mixin perspective($value) {
+	-webkit-perspective:$value;
+	   -moz-perspective:$value;
+        -ms-perspective:$value;
+            perspective:$value;
+}
+
+
+//
+// Gradients <http://dev.w3.org/csswg/css3-images/#linear-gradients>, <http://dev.w3.org/csswg/css3-images/#radial-gradients>
+//
+@mixin linear-gradient($angle, $startColor, $endColor) {
+	background:mix($startColor, $endColor, 50%);
+	background-image:-webkit-linear-gradient($angle, $startColor, $endColor);
+	background-image:        linear-gradient($angle, $startColor, $endColor);
+}
+@mixin radial-gradient($startColor, $endColor, $from: 0, $to: 100%, $shape: circle, $origin: center) {
+	background:mix($startColor, $endColor, 50%) repeat-x;
+	background-image:-webkit-radial-gradient($origin, $shape, $startColor $from, $endColor $to);
+	background-image:        radial-gradient($origin, $shape, $startColor $from, $endColor $to);
+}
+
+
+//
+// Transitions
+//
+@mixin transition($property: all, $time: .25s, $easing: ease) {
+	-webkit-transition:$property $time $easing;
+	        transition:$property $time $easing;
+}
+@mixin transition-delay($time: .2s) {
+	-webkit-transition-delay:$time;
+	        transition-delay:$time;
+}

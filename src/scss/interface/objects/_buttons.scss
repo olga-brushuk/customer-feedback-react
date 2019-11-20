@@ -1,0 +1,59 @@
+//
+// Description: Unified link or form buttons
+//
+
+.btn {
+	display:inline-block;
+	padding: .6em 1.2em .7em;
+	font-size: 24px;
+	font-family:$type-regular;
+	font-weight: $weight-regular;
+	letter-spacing: -0.01em;
+	color: $color-reverse;
+	background: $color-brand;
+	border: 1px solid $color-brand;
+	text-align: center;
+	line-height: 1.1;
+	cursor: pointer;
+	@include transition();
+	@include border-radius(30px); // half of the height
+	width: 100%;
+
+	@include media-breakpoint-up(sm) {
+		width: auto;
+		min-width: 320px;
+	}
+
+	&:hover {
+		text-decoration:none;
+		background: $color-reverse;
+		border: 1px solid $color-brand;
+		color: $color-brand;	
+	}
+
+	//
+	// Size variations
+	//
+	&.btn--small {
+		padding: .35em .9em;
+		min-width: 0;
+		font-size: 18px;
+
+		@include media-breakpoint-up(sm) {
+			padding: .4em 1.5em;
+			font-size: 20px;
+		}	
+	}
+}
+
+
+// Button group (when 2+ buttons need to be displayed inline)
+.button-group {
+	margin-left: -16px;
+	margin-right: -16px;
+	
+	.btn {
+		display: inline-block;
+		margin: 0 16px 10px;
+	}
+}

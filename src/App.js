@@ -39,27 +39,50 @@ class CustomerFeedback extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Email: ' + this.state.formControls.email.value);
-    alert('Name: ' + this.state.formControls.name.value);
-    alert('Comment: ' + this.state.formControls.comment.value);
+    //alert('Email: ' + this.state.formControls.email.value);
+    //alert('Name: ' + this.state.formControls.name.value);
+    //alert('Comment: ' + this.state.formControls.comment.value);
     //alert('Comment: ' + this.state.comment);
     event.preventDefault();
+      
+    var today = new Date();
+    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()+' ';
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    //document.getElementById('comments').prepend(this.state.formControls.comment.value + '<p>' + date + time + '</p>');
+
+    return (
+      <div>{this.state.formControls.comment.value}</div>
+      <p><span>{date}</span><span>{time}</span></p>
+    );
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>      
-        <label for="name" className="hidden">Enter your email</label>
-        <input type="text" name="name" value={this.state.formControls.name.value} onChange={this.changeHandler} placeholder="Enter your name" />
-        
-        <label for="email" className="hidden">Enter your name</label>
-        <input type="email" name="email" value={this.state.formControls.email.value} onChange={this.changeHandler} placeholder="Enter your email" />
-        
-        <label for="comment" className="hidden">Enter your comment</label>
-        <textarea name="comment" value={this.state.formControls.comment.value} onChange={this.changeHandler} placeholder="Please leave your comment" />
-        
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-7">
+            <form onSubmit={this.handleSubmit}>      
+              <label htmlFor="name" className="hidden">Enter your email</label>
+              <input type="text" name="name" value={this.state.formControls.name.value} onChange={this.changeHandler} placeholder="Enter your name" />
+              
+              <label htmlFor="email" className="hidden">Enter your name</label>
+              <input type="email" name="email" value={this.state.formControls.email.value} onChange={this.changeHandler} placeholder="Enter your email" />
+              
+              <label htmlFor="comment" className="hidden">Enter your comment</label>
+              <textarea name="comment" value={this.state.formControls.comment.value} onChange={this.changeHandler} placeholder="Please leave your comment" />
+              
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+          <div className="col-md-5">
+            <div className="graph">
+            </div>
+          </div>
+        </div>
+        <div id="comments">
+        </div>
+      </div>
     );
   }
 }

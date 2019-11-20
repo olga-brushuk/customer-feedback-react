@@ -1,0 +1,234 @@
+//
+// Description: Base typography and classes for adjusting text content.
+//
+
+// Baseline
+$type-size:      16;  // px
+$type-baseline:  1.5; // no unit
+$type-blankline: 1em; // any unit
+
+
+// Fonts
+$type-regular: 'Chivo', sans-serif;
+
+$weight-regular: 400;
+
+//
+// Document
+//
+body {
+	@include font-size(18);
+	@include line-height(27, 20);
+	font-family: $type-regular;
+	font-weight: $weight-regular;
+	color: $color-text;
+	-webkit-font-smoothing: antialiased;
+
+	@include media-breakpoint-up(lg) {
+		@include font-size(20);
+		@include line-height(30, 20);
+	}
+}
+
+//
+// Primary text elements
+//
+p, ul, ol, dd {
+	margin:0 0 $type-blankline;
+}
+ul, ol, dl {
+	padding:0 0 0 1.75em;
+}
+
+
+//
+// Headings
+// - OOCSS style headings allow markup to define document structure when the design does not.
+//
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-family:$type-regular;
+	font-weight: $weight-regular;
+}
+
+h1, .h1 {
+	margin: 0 0 .25em;
+	@include font-size(24);
+	@include line-height(38, 32);
+	letter-spacing: -0.01em;
+
+	@include media-breakpoint-up(sm) {
+		@include font-size(28);
+	}
+
+	@include media-breakpoint-up(md) {
+		@include font-size(32);
+	}
+}
+h2, .h2 {
+	margin: 0 0 .25em;
+	@include font-size(24);
+	@include line-height(38, 32);
+	letter-spacing: -0.01em;
+
+	@include media-breakpoint-up(sm) {
+		@include font-size(28);
+	}
+
+	@include media-breakpoint-up(md) {
+		@include font-size(32);
+	}
+}
+h3, .h3 {
+	margin:0 0 .6em;
+	@include font-size(16);
+	@include line-height(28, 24);
+
+	@include media-breakpoint-up(sm) {
+		letter-spacing: -0.01em;
+		@include font-size(20);
+	}
+
+	@include media-breakpoint-up(md) {
+		@include font-size(24);
+	}
+}
+h4, .h4,
+h5, .h5 {
+	margin:0 0 .8em;
+	@include font-size(16);
+	@include line-height(30, 20);
+
+	@include media-breakpoint-up(md) {
+		letter-spacing: -0.01em;
+		@include font-size(20);
+	}
+}
+h6, .h6 {
+	margin:0 0 .8em;
+	@include font-size(18);
+	@include line-height(27, 18);
+}
+
+//
+// Font size variations <http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/>
+//
+.nano {
+	font-size: 10px;
+}
+.milli {
+	font-size: 12px;
+}
+.centi {
+	font-size: 14px;
+}
+.deci {
+	@include font-size(14);
+
+	@include media-breakpoint-up(md) {
+		@include font-size(16);
+	}
+}
+.deca {
+	@include font-size(16);
+}
+.kilo {
+	@include font-size(16);
+	@include line-height(27, 18);
+
+	@include media-breakpoint-up(md) {
+		@include font-size(18);
+	}
+}
+.mega {
+	@include font-size(18);
+	@include line-height(30, 20);
+
+	@include media-breakpoint-up(md) {
+		letter-spacing: -0.01em;
+		@include font-size(20);
+	}
+}
+.giga {
+	@include font-size(20);
+	@include line-height(28, 24);
+	letter-spacing: -0.01em;
+
+	@include media-breakpoint-up(md) {
+		@include font-size(24);
+	}
+}
+.tera {
+	@include font-size(24);
+	@include line-height(38, 32);
+	letter-spacing: -0.01em;
+
+	@include media-breakpoint-up(md) {
+		@include font-size(32);
+	}
+}
+.peta {
+	@include font-size(28);
+	@include line-height(40, 36);
+	letter-spacing: -0.01em;
+
+	@include media-breakpoint-up(md) {
+		@include font-size(32);
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include font-size(36);
+	}
+}
+.exa {
+	@include font-size(30);
+	line-height: 1;
+	letter-spacing: -0.01em;
+
+	@include media-breakpoint-up(md) {
+		@include font-size(36);
+	}
+	@include media-breakpoint-up(lg) {
+		@include font-size(48);
+	}
+}
+
+//
+// Text colours
+//
+.brand {
+	color: $color-brand;
+}
+.secondary {
+	color: $color-secondary;
+}
+.highlight {
+	color: $color-highlight;
+}
+.dark {
+	color: $color-dark;
+}
+.accent {
+	color: $color-accent;
+}
+.black {
+	color: $black;
+}
+.reverse {
+	color: $color-reverse;
+}
+
+
+//
+// Text transforms
+//
+.caps {
+	text-transform: uppercase;
+}
+.lwc {
+	text-transform: lowercase;
+}

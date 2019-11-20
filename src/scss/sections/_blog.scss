@@ -1,0 +1,99 @@
+//
+// Blog related widgets
+//
+
+// Blog details
+.blog-details {
+
+	.blog-details__hero {
+		position: relative;
+	}
+
+	.blog-details__go-back {
+		display: inline-block;
+		padding: 1em 0;
+
+		@include media-breakpoint-up(md) {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			top: 2em;
+		}
+	}
+
+	// adjusting some of the typography for post content
+	.blog-details__content {
+
+
+	}
+
+	// the bottom part of the post's event's main content with social share
+	.blog-details__footer {
+		border-top: 1px solid lighten($color-dark, 50%);
+		padding: 1.25em 0;
+		margin-top: 3em;
+
+		a.link--arrow-left {
+			font-size: 16px;
+			line-height: 36px;		
+
+			&:before {
+				@include font-size(20);
+				color: $color-text;
+				@include transition();
+			}
+
+			&:hover {
+				&:before {
+					color: $color-brand;
+				}
+			}
+		}
+
+		.btn-copy-to-clipboard {               
+			color: $color-text;
+			text-align: right;
+			cursor: pointer;
+			@include transition();
+
+			@include media-breakpoint-up(sm) {
+				text-align: center;
+			}
+
+            span {
+                margin-right: 6px;
+
+                &:before {
+					font-size: 20px;
+					position: relative;
+					top: 3px;
+					left: 0;
+				}
+            }
+
+            &:hover {
+            	color: $color-brand;
+            }
+
+        }
+
+		.blog-details__social {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+
+			@include media-breakpoint-up(sm) {
+				justify-content: flex-end;
+			}
+
+			.social-text {
+				line-height: 36px; // as per line height of the social media elements
+				display: inline-block;
+				margin-right: 10px;
+			}
+		}
+	}
+}

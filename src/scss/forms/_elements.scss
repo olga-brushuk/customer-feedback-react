@@ -1,0 +1,239 @@
+//
+// Description: Styling for default form elements
+//
+
+$input-padding:    .25em;
+$input-background: $color-reverse;
+$input-blurred:    $color-secondary;
+$input-focused:    $black;
+$input-disabled:   #DDD;
+
+$form-field-height: 50px;
+
+//
+// Legends - don't bother styling the legend element directly
+//
+legend > span {
+	display:block;
+}
+
+
+//
+// Labels
+//
+label {
+	white-space:nowrap;
+	display: block;
+	color: lighten($color-secondary, 10%);
+	font-size: 20px;
+	padding: .4em 0;
+
+	 @include media-breakpoint-up(lg) {
+		font-size: 24px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: 32px;
+	}
+
+	dfn[title] {
+		border:none;
+		color: $color-text;
+	}
+}
+
+
+//
+// Shared properties
+//
+input,
+select,
+textarea {
+	padding: .4em 0;
+	font-family: $type-regular;
+	font-size: 20px;
+	margin-bottom: .7em;
+	display: block;
+	background: $input-background;
+	border: 1px solid transparent;
+	border-bottom: 1px solid $color-secondary;
+	color: $color-text;
+	width: 100%;
+	background-clip: padding-box;
+	-webkit-border-radius: 0px;
+	-webkit-appearance: none;   
+    -webkit-box-shadow: none;
+    font-weight: $weight-regular;
+
+    @include media-breakpoint-up(lg) {
+		font-size: 24px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: 32px;
+	}
+
+	&[disabled] {
+		border-color:darken($input-disabled, 20%) !important;
+		color:darken($input-disabled, 20%) !important;
+		background:$input-disabled !important;
+		cursor:not-allowed !important;
+	}
+
+	&:focus {
+		color: $color-text;
+		outline: none;
+		border-bottom: 1px solid black;
+	}
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: lighten($color-secondary, 10%);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: lighten($color-secondary, 10%);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: lighten($color-secondary, 10%);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: lighten($color-secondary, 10%);
+}
+
+input {
+	// Go native else build a new input with a little JS <http://bit.ly/qM8FYC>
+	&[type=file],
+	&[type=radio],
+	&[type=checkbox] {
+		padding:0;
+		border:none;
+		background:none;
+		width: auto;
+	}
+
+	&[type=submit] {
+		@extend .btn;
+		//@extend .btn--small;
+		width: 100%;
+		margin: 0 auto;
+
+		@include media-breakpoint-up(sm) {
+			margin: 0;
+			width: auto;
+		}		
+	} 
+}
+
+// Select boxes obey a border-box layout (mostly)
+select {
+	height:29px; // Set a height to match text inputs (roughly font size * 'normal' + border width E.G. 16 * 1.222 + 2)
+	padding:2px;
+
+	&[size],
+	&[multiple] {
+		height:auto;
+	}
+}
+
+textarea {
+	padding: .4em;
+	height: 5em;
+	border: 1px solid $color-secondary;
+	font-size: 20px;
+
+	&[rows] {
+		height:auto;
+	}
+
+	&:focus {
+		border: 1px solid black;
+	}
+}
+
+// Custom checkboxes
+.control {
+	@include font-size(16);
+	position: relative;
+	display: block;
+	margin-bottom: 2em;
+	padding-left: 28px;
+	cursor: pointer;
+	white-space: inherit;
+	color: $black;
+}
+.control input {
+	position: absolute;
+	left: -28px;
+	top: 50%;
+	@include translate(0, -50%);
+	width: 20px !important;
+	height: 20px !important;
+	margin: 0;
+	padding: 0;
+}
+.control input:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: $color-reverse;
+	border: 2px solid $color-secondary;
+	z-index: 10;
+}
+
+/* Check mark */
+.control input:before {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked:before {
+	display: block;
+}
+
+/* Checkbox tick */
+.control input:checked:before{
+	top: 4px;
+	left: 8px;
+	width: 5px;
+	height: 10px;
+	@include rotate(45deg);
+	border: solid $color-brand;
+	border-width: 0 2px 2px 0;
+	z-index: 20;
+}
+
+
+// Custom select
+.custom-select {
+	position: relative;
+
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-ms-apperance: none;
+		appearance: none;
+		position: relative;
+		width: 100%;
+		box-sizing: border-box;
+		height: $form-field-height;
+		padding-top: .8em; // to overwrite singular values in layouts.less
+		padding-bottom: .8em;
+		padding-left: .8em;
+		padding-right: 1.7em;
+		margin: 0;
+		// background-image: url(../images/arrow-down.png);
+		background-position: center right 14px;
+		// fix for ipad iOS < 7.0
+		background-position-x: 95%;
+		background-position-y: 50%;
+		background-repeat: no-repeat;
+		&::-ms-expand {
+		    display: none;
+		}
+	}
+}

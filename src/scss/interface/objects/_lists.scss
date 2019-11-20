@@ -1,0 +1,153 @@
+//
+// Description: Useful classes for formatting lists
+//
+
+//
+// Comma separated list
+// Zen-coding: ul.list--tag>li*3
+//
+ul.list--tag {
+	padding-left:0;
+	text-transform:capitalize;
+
+	> li {
+		display:inline;
+
+		&:after {
+			content:',\0000a0'; // Non-breaking space
+		}
+		&:last-child:after {
+			content:normal;
+		}
+	}
+}
+
+
+//
+// Pipe separated list
+// Zen-coding: ul.list--separated>li*3
+//
+ul.list--separated {
+	padding-left:0;
+
+	> li {
+		display:inline;
+
+		&:before {
+			content:'\0000a0\0000a0|\0000a0\0000a0'; // Non-breaking space
+		}
+		&:first-child:before {
+			content:normal;
+		}
+	}
+}
+
+
+//
+// Inline dash list
+// Zen-coding: ul.list--dash>li*3
+//
+ul.list--dash {
+	padding-left: 0;
+	margin-top: .5em;
+
+	@include media-breakpoint-up(sm) {
+		display: inline-block;
+		padding-left: .5em;
+		margin-top: 0;
+	}
+
+	> li {
+		display:inline;
+
+		&:after {
+			content:'\0000a0-\0000a0'; // Non-breaking space
+		}
+		&:last-child:after {
+			content:normal;
+		}
+	}
+}
+
+
+//
+// List with styled bullets of the brand colour
+//
+ul.list--styled,
+.lists--styled ul {
+	list-style: none;
+	font-weight: normal;
+	padding: 0 0 0 1em;
+	
+	li {
+		padding: .15em;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 6px;
+			height: 6px;
+			border-radius: 100%;
+			background: $color-brand;
+			position: relative;
+			top: -3px;
+			margin-left: -20px;
+			margin-right: 10px;
+		}
+	}
+}
+
+
+//
+// List with flexbox layout and additional font styling
+//
+ul.list--dark-lg,
+.lists--dark-lg ul {
+	list-style: none;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+	
+	li {
+		padding: 0 ;
+		@extend .giga;
+		font-weight: $weight-bold;
+		color: $color-dark;
+		line-height: 1.1;
+		margin-bottom: .5em;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: 1em;
+		}
+	}
+}
+
+ul.list--flex,
+.list--flex ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-right: -16px;
+	margin-left: -16px;
+	padding: 0;
+	width: 100%;
+
+	@include media-breakpoint-up(md) {
+		margin-right: -32px;
+		margin-left: -32px;
+	}
+
+	li {
+		flex: 0 0 50%;
+		max-width: 50%;
+		padding-right: 16px;
+		padding-left: 16px;
+
+		@include media-breakpoint-up(md) {
+			flex: 0 0 25%;
+			max-width: 25%;
+			padding-right: 32px;
+			padding-left: 32px;
+		}
+	}
+}

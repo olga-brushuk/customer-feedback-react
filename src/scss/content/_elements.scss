@@ -1,0 +1,180 @@
+//
+// Description: Styling for default elements
+//
+
+//
+// Quotations and citations
+// Zen-Coding: blockquote>p+footer>cite>a
+blockquote, q, cite {
+	font-style:normal;
+}
+blockquote {
+	color: $color-brand;
+	line-height: 1.2;
+	font-weight: $weight-regular;
+
+	@include media-breakpoint-up(lg) {
+		margin-top: -6px;
+		line-height: 1;
+	}
+
+	p {	
+		display: inline;
+
+		&:first-child:before {
+			content: "“";
+			display: inline;
+		}
+
+		&:last-of-type:after {
+			content: "”";
+			display: inline;
+		}
+	}
+
+	footer {
+		margin-top: 16px;
+		color: $color-text;
+		font-weight: $weight-regular;
+		@include font-size(16);
+		@include line-height(27, 18);
+
+		@include media-breakpoint-up(md) {
+			margin-top: 20px;
+			@include font-size(18);
+		}
+	}
+}
+
+
+//
+// Monospace
+//
+pre, code, kbd, var {
+}
+pre {
+	background: #201c29;
+	clear: both;
+    color: #fff;
+    padding: 0;
+    -ms-word-break: normal;
+    word-break: normal;
+    word-break: normal;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    position: relative;
+    border-radius: 8px;
+    min-width: 100px;
+    max-width: 100%;
+    overflow: hidden;
+
+	.comment {
+		color: #777;
+	}
+
+	code {
+		font-size: 16px;
+	    line-height: 1.3;
+	    background: 0 0;
+	    padding: 1rem;
+	    white-space: pre;
+	    -webkit-overflow-scrolling: touch;
+	    display: block;
+	    overflow-x: scroll;
+	    max-width: 100%;
+	    min-width: 100px;
+	    color: #cd6a51;
+	}
+
+	// &.snippet {
+	// 	display: inline-block;
+	// }
+}
+code, kbd, var {
+	line-height:1.3;
+}
+
+
+
+
+//
+// Tooltips
+//
+abbr[title], acronym[title], dfn[title] {
+	border-bottom:1px dotted;
+	cursor:help;
+}
+
+
+//
+// Links
+//
+a {
+	text-decoration:none;
+	color:$color-brand;
+	@include transition();
+
+	&:hover {
+		color:darken($color-brand, 20%);
+		text-decoration: underline;
+	}
+	&:active, &:focus {
+		outline-offset:1px;
+	}
+	&:focus {
+		outline: 1px dotted $color-lowlight;
+	}
+}
+
+
+//
+// Horizontal rules
+//
+hr {
+	height:1px;
+	padding:0;
+	margin:1em 0;
+	border:0;
+	background:$color-subtle;
+}
+
+//
+// Tables
+//
+table {
+	width: 100% !important;
+	margin:$type-blankline auto;
+	border-collapse:collapse;
+	border:1px solid $color-primary;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: .2em;
+	}
+}
+	th {
+		font-weight:normal;
+		text-align:left;
+		background:lighten($color-primary, 5%);
+	}
+	th, td {
+		padding:.25em .5em;
+		border-right:1px solid $color-primary;
+		border-bottom:1px solid $color-primary;
+	}
+
+//
+//Iframes
+
+iframe {
+	display: block;
+}
+
+address {
+	font-style: normal;
+	margin-bottom: .5em;
+
+	p {
+		margin-bottom: 0;
+	}
+}

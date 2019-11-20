@@ -1,0 +1,54 @@
+$text-color: #222;
+
+//
+// ScrollReveal elemts to be shown on print
+//
+.sr-scale,
+.sr-move-up,
+.sr-move-up-delayed,
+.sr-show,
+.sr-scale-carousel,
+.sr-move-up-delayed-carousel {
+	visibility: visible !important;
+	opacity: 1 !important;
+	display: block !important;
+	transform: translateY(0) scale(1) !important;
+}
+
+.slick-slider .slick-track ,
+.slick-initialized .slick-slide {
+	width: 100% !important;
+}
+.slick-list {
+	padding: 0 !important;
+}
+
+// grid
+.container {
+	width: 100%;
+}
+
+.slab {
+	padding: 1em 0;
+}
+
+.post-edit-link {
+	display: none;
+}
+
+.accordion .accordion__content {
+	display: block !important;
+}
+
+#site-navigation,
+#site-footer {
+	display: none;
+}
+
+.theme-bottom-content-actions {
+	display: none;
+}
+
+.post-social {
+	display: none;
+}

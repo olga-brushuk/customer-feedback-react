@@ -1,0 +1,17 @@
+// Brand colours
+$color-brand:      #FF5350; // tangerine
+$color-primary:    #283048; // dark blue 
+$color-secondary:  #999DA8; // grey blue
+$color-dark:       #535A6D; // dark blue grey
+$color-highlight:  $color-brand;
+$color-accent:     #6BC8CB; // aqua 
+$color-lowlight:   #F7F7F8; // Lightest grey
+$color-subtle:     #EDEFEF; // Light grey
+
+// Additional colours
+$white:            #FFF;
+$black:            $color-primary;
+$color-text:       $color-primary;
+$color-reverse:    $white;
+$color-attention:  $color-highlight;
+$color-background: $color-lowlight;
