@@ -2,11 +2,14 @@ import React from 'react';
 import Comments from './Comments';
 import StarRatingComponent from 'react-star-rating-component';
 
+import LineChart from './LineChart';
+
+
 class CustomerFeedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = { // set default states
-      items: [],
+      comments: [],
       formControls: {
           email: {
             value: ''
@@ -18,7 +21,10 @@ class CustomerFeedback extends React.Component {
             value: ''
           }
       },
-      rating: 1
+      rating: 1,
+      allRatings: [],
+      dataHeaders: ["Comment no", "Rating"],
+      dataChart: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,14 +48,22 @@ class CustomerFeedback extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault(); // stop form from submitting and do actions below
-    
-    // create an array of current properties tto be used by Comments, reset values in the form 
-    this.setState({
-      items: [...this.state.items, {
+
+        // loop through items array, create a new array and push to it an objecttt
+    // of type array with first value index and second value rating
+
+    const comments = [...this.state.comments, {
         comment: this.state.formControls.comment.value, 
         name: this.state.formControls.userName.value, 
         rating: this.state.rating
-      }],
+    }]
+
+    const chartData = [this.state.dataHeaders];
+    comments.forEach((comment, index) => chartData.push([index, comment.rating]));
+    
+    // create an array of current properties tto be used by Comments, reset values in the form 
+    this.setState({
+      comments: comments,
       formControls: {
           email: {
             value: ''
@@ -60,7 +74,8 @@ class CustomerFeedback extends React.Component {
           comment: {
             value: ''
           }
-      }
+      },
+      dataChart: chartData
     });
   }
 
@@ -69,9 +84,17 @@ class CustomerFeedback extends React.Component {
   }
 
   render() {
+
+    let chart = '';
+
+    if (this.state.dataChart.length > 1) {
+      chart = <LineChart chartData={this.state.dataChart}/>;
+    }
+
     return (
       <div className="container">
         <div className="row">
+
           <div className="col-md-7">
             <form onSubmit={this.handleSubmit}>      
               <label htmlFor="userName" className="hidden">Enter your email</label>
@@ -96,13 +119,17 @@ class CustomerFeedback extends React.Component {
               <input type="submit" value="Submit" />
             </form>
           </div>
+
           <div className="col-md-5">
             <div className="graph">
+              {chart}
             </div>
           </div>
+
         </div>
+
         <div className="comments">
-          <Comments items={this.state.items} />
+          <Comments items={this.state.comments} />
         </div>
       </div>
     );
