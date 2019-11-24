@@ -58,7 +58,7 @@ class CustomerFeedback extends React.Component {
     }]
 
     const allRatingsIndexed = [this.state.chartDataHeaders];
-    comments.forEach((comment, index) => allRatingsIndexed.push([index, comment.rating]));
+    comments.forEach((comment, index) => allRatingsIndexed.push([index + 1, comment.rating]));
     
     // create an array of current properties tto be used by Comments, reset values in the form 
     this.setState({
@@ -79,6 +79,7 @@ class CustomerFeedback extends React.Component {
     });
   }
 
+  // handle star click
   onStarClick(nextValue, prevValue, name) {
     this.setState({rating: nextValue});
   }
@@ -88,7 +89,7 @@ class CustomerFeedback extends React.Component {
     // render Chart only if it has rating data
     let chart = '';
 
-    if (this.state.chartData.length >= 1) {
+    if (this.state.chartData.length > 1) { // length needs to be higher than 1 as the 1st value is the headings array 
       chart = <LineChart chartData={this.state.chartData}/>;
     }
 
@@ -111,10 +112,10 @@ class CustomerFeedback extends React.Component {
             <div className="col-md-7">
               <form onSubmit={this.handleSubmit}>      
                 <label htmlFor="userName" className="hidden">Enter your email</label>
-                <input type="text" name="userName" value={this.state.formControls.userName.value} onChange={this.changeHandler} placeholder="Enter your name" />                
+                <input type="text" name="userName" value={this.state.formControls.userName.value} onChange={this.changeHandler} placeholder="Enter your name" required />                
                 
                 <label htmlFor="email" className="hidden">Enter your name</label>
-                <input type="email" name="email" value={this.state.formControls.email.value} onChange={this.changeHandler} placeholder="Enter your email" />                
+                <input type="email" name="email" value={this.state.formControls.email.value} onChange={this.changeHandler} placeholder="Enter your email" required />                
                 
                 <div className="below-16 top-24">
                   <h2 className="mega">Please include your rating:</h2>
@@ -127,7 +128,7 @@ class CustomerFeedback extends React.Component {
                 </div>
                 
                 <label htmlFor="comment" className="hidden">Enter your comment</label>
-                <textarea name="comment" value={this.state.formControls.comment.value} onChange={this.changeHandler} placeholder="Please leave your comment" />
+                <textarea name="comment" value={this.state.formControls.comment.value} onChange={this.changeHandler} placeholder="Please leave your comment" required />
                 
                 <input type="submit" value="Submit" />
               </form>
