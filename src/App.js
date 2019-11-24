@@ -1,24 +1,26 @@
 import React from 'react';
-import './App.css';
+import Comments from './Comments';
+import StarRatingComponent from 'react-star-rating-component';
 
 class CustomerFeedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = { // set default states
+      items: [],
       formControls: {
           email: {
             value: ''
           },
-          name: {
+          userName: {
             value: ''
           },
           comment: {
             value: ''
           }
-      }
+      },
+      rating: 1
     };
 
-    //this.handleNameChange = this.handleNameChange.bind(this);  
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -39,22 +41,31 @@ class CustomerFeedback extends React.Component {
   }
 
   handleSubmit(event) {
-    //alert('Email: ' + this.state.formControls.email.value);
-    //alert('Name: ' + this.state.formControls.name.value);
-    //alert('Comment: ' + this.state.formControls.comment.value);
-    //alert('Comment: ' + this.state.comment);
-    event.preventDefault();
-      
-    var today = new Date();
-    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()+' ';
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    event.preventDefault(); // stop form from submitting and do actions below
+    
+    // create an array of current properties tto be used by Comments, reset values in the form 
+    this.setState({
+      items: [...this.state.items, {
+        comment: this.state.formControls.comment.value, 
+        name: this.state.formControls.userName.value, 
+        rating: this.state.rating
+      }],
+      formControls: {
+          email: {
+            value: ''
+          },
+          userName: {
+            value: ''
+          },
+          comment: {
+            value: ''
+          }
+      }
+    });
+  }
 
-    //document.getElementById('comments').prepend(this.state.formControls.comment.value + '<p>' + date + time + '</p>');
-
-    return (
-      <div>{this.state.formControls.comment.value}</div>
-      <p><span>{date}</span><span>{time}</span></p>
-    );
+  onStarClick(nextValue, prevValue, name) {
+    this.setState({rating: nextValue});
   }
 
   render() {
@@ -63,12 +74,22 @@ class CustomerFeedback extends React.Component {
         <div className="row">
           <div className="col-md-7">
             <form onSubmit={this.handleSubmit}>      
-              <label htmlFor="name" className="hidden">Enter your email</label>
-              <input type="text" name="name" value={this.state.formControls.name.value} onChange={this.changeHandler} placeholder="Enter your name" />
+              <label htmlFor="userName" className="hidden">Enter your email</label>
+              <input type="text" name="userName" value={this.state.formControls.userName.value} onChange={this.changeHandler} placeholder="Enter your name" />
               
               <label htmlFor="email" className="hidden">Enter your name</label>
               <input type="email" name="email" value={this.state.formControls.email.value} onChange={this.changeHandler} placeholder="Enter your email" />
               
+              <div>
+                <h2>Rating from state:</h2>
+                <StarRatingComponent 
+                  name="rate1" 
+                  starCount={5}
+                  value={this.state.rating}
+                  onStarClick={this.onStarClick.bind(this)}
+                />
+              </div>
+
               <label htmlFor="comment" className="hidden">Enter your comment</label>
               <textarea name="comment" value={this.state.formControls.comment.value} onChange={this.changeHandler} placeholder="Please leave your comment" />
               
@@ -80,7 +101,8 @@ class CustomerFeedback extends React.Component {
             </div>
           </div>
         </div>
-        <div id="comments">
+        <div className="comments">
+          <Comments items={this.state.items} />
         </div>
       </div>
     );
