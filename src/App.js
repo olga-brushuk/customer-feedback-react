@@ -107,7 +107,7 @@ class CustomerFeedback extends React.Component {
     return (
       <div className="slab">
         <div className="container">
-          <h1 className="below-16">Customer feedback</h1>
+          <h1 className="below-16">Customerr feedback</h1>
           <div className="row">
             <div className="col-md-7">
               <form onSubmit={this.handleSubmit}>      

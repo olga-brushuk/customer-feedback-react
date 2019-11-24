@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Feedback snapshot testing app initial state 1`] = `
+<div
+  className="slab"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="below-16"
+    >
+      Customerr feedback
+    </h1>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-7"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <label
+            className="hidden"
+            htmlFor="userName"
+          >
+            Enter your email
+          </label>
+          <input
+            name="userName"
+            onChange={[Function]}
+            placeholder="Enter your name"
+            required={true}
+            type="text"
+            value=""
+          />
+          <label
+            className="hidden"
+            htmlFor="email"
+          >
+            Enter your name
+          </label>
+          <input
+            name="email"
+            onChange={[Function]}
+            placeholder="Enter your email"
+            required={true}
+            type="email"
+            value=""
+          />
+          <div
+            className="below-16 top-24"
+          >
+            <h2
+              className="mega"
+            >
+              Please include your rating:
+            </h2>
+            <div
+              className="dv-star-rating"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "position": "relative",
+                }
+              }
+            >
+              <input
+                checked={false}
+                className="dv-star-rating-input"
+                id="rate1_5"
+                name="rate1"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                    "marginLeft": -9999,
+                    "position": "absolute",
+                  }
+                }
+                type="radio"
+                value={5}
+              />
+              <label
+                className="dv-star-rating-star dv-star-rating-empty-star"
+                htmlFor="rate1_5"
+                onClick={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                style={
+                  Object {
+                    "color": "#333",
+                    "cursor": "pointer",
+                    "float": "right",
+                  }
+                }
+              >
+                <i
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  ★
+                </i>
+              </label>
+              <input
+                checked={false}
+                className="dv-star-rating-input"
+                id="rate1_4"
+                name="rate1"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                    "marginLeft": -9999,
+                    "position": "absolute",
+                  }
+                }
+                type="radio"
+                value={4}
+              />
+              <label
+                className="dv-star-rating-star dv-star-rating-empty-star"
+                htmlFor="rate1_4"
+                onClick={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                style={
+                  Object {
+                    "color": "#333",
+                    "cursor": "pointer",
+                    "float": "right",
+                  }
+                }
+              >
+                <i
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  ★
+                </i>
+              </label>
+              <input
+                checked={false}
+                className="dv-star-rating-input"
+                id="rate1_3"
+                name="rate1"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                    "marginLeft": -9999,
+                    "position": "absolute",
+                  }
+                }
+                type="radio"
+                value={3}
+              />
+              <label
+                className="dv-star-rating-star dv-star-rating-empty-star"
+                htmlFor="rate1_3"
+                onClick={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                style={
+                  Object {
+                    "color": "#333",
+                    "cursor": "pointer",
+                    "float": "right",
+                  }
+                }
+              >
+                <i
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  ★
+                </i>
+              </label>
+              <input
+                checked={false}
+                className="dv-star-rating-input"
+                id="rate1_2"
+                name="rate1"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                    "marginLeft": -9999,
+                    "position": "absolute",
+                  }
+                }
+                type="radio"
+                value={2}
+              />
+              <label
+                className="dv-star-rating-star dv-star-rating-empty-star"
+                htmlFor="rate1_2"
+                onClick={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                style={
+                  Object {
+                    "color": "#333",
+                    "cursor": "pointer",
+                    "float": "right",
+                  }
+                }
+              >
+                <i
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  ★
+                </i>
+              </label>
+              <input
+                checked={true}
+                className="dv-star-rating-input"
+                id="rate1_1"
+                name="rate1"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                    "marginLeft": -9999,
+                    "position": "absolute",
+                  }
+                }
+                type="radio"
+                value={1}
+              />
+              <label
+                className="dv-star-rating-star dv-star-rating-full-star"
+                htmlFor="rate1_1"
+                onClick={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                style={
+                  Object {
+                    "color": "#ffb400",
+                    "cursor": "pointer",
+                    "float": "right",
+                  }
+                }
+              >
+                <i
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  ★
+                </i>
+              </label>
+            </div>
+          </div>
+          <label
+            className="hidden"
+            htmlFor="comment"
+          >
+            Enter your comment
+          </label>
+          <textarea
+            name="comment"
+            onChange={[Function]}
+            placeholder="Please leave your comment"
+            required={true}
+            value=""
+          />
+          <input
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
+      <div
+        className="col-md-5"
+      >
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
