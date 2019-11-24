@@ -1,12 +1,10 @@
 // Global vars
-//@import "settings/variables";
 @import "settings/palette";
 
 // Bootsrap grid
 @import "bootstrap-4-grid/grid";
 
 // Libraries
-//@import "lib/animation";
 @import "lib/css3";
 @import "lib/mixins";
 @import "lib/normalize";
@@ -22,32 +20,7 @@
 
 // Interface objects
 @import "interface/objects/buttons";
-//@import "interface/objects/icons";
-//@import "interface/objects/images";
-//@import "interface/objects/links";
-//@import "interface/objects/lists";
-//@import "interface/objects/pagination";
-//@import "interface/objects/social";
 
 // Interface modules
-//@import "interface/modules/accordion";
-//@import "interface/modules/animate";
-//@import "interface/modules/carousel";
-//@import "interface/modules/gallery";
-//@import "interface/modules/hero-layers";
-//@import "interface/modules/hero";
-//@import "interface/modules/rhombuses";
-//@import "interface/modules/slab";
-//@import "interface/modules/slick";
-//@import "interface/modules/tabs";
-//@import "interface/modules/teaser";
-//@import "interface/modules/tiles";
-//@import "interface/modules/video";
-
-// Sections
-//@import "sections/blog";
-
-// Interface
-//@import "interface/skin/site-header";
-//@import "interface/skin/site-footer";
-//@import "interface/skin/theme";
+@import "interface/modules/comments";
+@import "interface/modules/slab";

@@ -52,7 +52,7 @@ textarea {
 	padding: .4em 0;
 	font-family: $type-regular;
 	font-size: 20px;
-	margin-bottom: .7em;
+	margin-bottom: 1em;
 	display: block;
 	background: $input-background;
 	border: 1px solid transparent;
@@ -70,7 +70,7 @@ textarea {
 	}
 
 	@include media-breakpoint-up(xl) {
-		font-size: 32px;
+		font-size: 30px;
 	}
 
 	&[disabled] {
@@ -113,7 +113,6 @@ input {
 
 	&[type=submit] {
 		@extend .btn;
-		//@extend .btn--small;
 		width: 100%;
 		margin: 0 auto;
 
@@ -140,6 +139,7 @@ textarea {
 	height: 5em;
 	border: 1px solid $color-secondary;
 	font-size: 20px;
+	margin-bottom: 2em;
 
 	&[rows] {
 		height:auto;
@@ -147,93 +147,5 @@ textarea {
 
 	&:focus {
 		border: 1px solid black;
-	}
-}
-
-// Custom checkboxes
-.control {
-	@include font-size(16);
-	position: relative;
-	display: block;
-	margin-bottom: 2em;
-	padding-left: 28px;
-	cursor: pointer;
-	white-space: inherit;
-	color: $black;
-}
-.control input {
-	position: absolute;
-	left: -28px;
-	top: 50%;
-	@include translate(0, -50%);
-	width: 20px !important;
-	height: 20px !important;
-	margin: 0;
-	padding: 0;
-}
-.control input:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 20px;
-	height: 20px;
-	background: $color-reverse;
-	border: 2px solid $color-secondary;
-	z-index: 10;
-}
-
-/* Check mark */
-.control input:before {
-	position: absolute;
-	display: none;
-	content: '';
-}
-
-/* Show check mark */
-.control input:checked:before {
-	display: block;
-}
-
-/* Checkbox tick */
-.control input:checked:before{
-	top: 4px;
-	left: 8px;
-	width: 5px;
-	height: 10px;
-	@include rotate(45deg);
-	border: solid $color-brand;
-	border-width: 0 2px 2px 0;
-	z-index: 20;
-}
-
-
-// Custom select
-.custom-select {
-	position: relative;
-
-	select {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		-ms-apperance: none;
-		appearance: none;
-		position: relative;
-		width: 100%;
-		box-sizing: border-box;
-		height: $form-field-height;
-		padding-top: .8em; // to overwrite singular values in layouts.less
-		padding-bottom: .8em;
-		padding-left: .8em;
-		padding-right: 1.7em;
-		margin: 0;
-		// background-image: url(../images/arrow-down.png);
-		background-position: center right 14px;
-		// fix for ipad iOS < 7.0
-		background-position-x: 95%;
-		background-position-y: 50%;
-		background-repeat: no-repeat;
-		&::-ms-expand {
-		    display: none;
-		}
 	}
 }

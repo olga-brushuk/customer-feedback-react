@@ -10,7 +10,6 @@ $type-blankline: 1em; // any unit
 
 // Fonts
 $type-regular: 'Chivo', sans-serif;
-
 $weight-regular: 400;
 
 //
@@ -197,29 +196,10 @@ h6, .h6 {
 	}
 }
 
-//
-// Text colours
-//
-.brand {
-	color: $color-brand;
-}
-.secondary {
-	color: $color-secondary;
-}
-.highlight {
-	color: $color-highlight;
-}
-.dark {
-	color: $color-dark;
-}
-.accent {
-	color: $color-accent;
-}
-.black {
-	color: $black;
-}
-.reverse {
-	color: $color-reverse;
+
+// Weight
+.bold {
+	font-weight: bold;
 }
 
 
