@@ -1,9 +1,7 @@
 import React from 'react';
 import Comments from './Comments';
 import StarRatingComponent from 'react-star-rating-component';
-
 import LineChart from './LineChart';
-
 
 class CustomerFeedback extends React.Component {
   constructor(props) {
@@ -48,19 +46,18 @@ class CustomerFeedback extends React.Component {
   handleSubmit(event) {
     event.preventDefault(); // stop form from submitting and do actions below
 
-        // loop through items array, create a new array and push to it an objecttt
-    // of type array with first value index and second value rating
-
+    // create an array that contains comments data: comment, name(user) and rating
     const comments = [...this.state.comments, {
         comment: this.state.formControls.comment.value, 
         name: this.state.formControls.userName.value, 
         rating: this.state.rating
     }]
 
+    // create a new array that consists of chart header and push in indexed ratings
     const allRatingsIndexed = [this.state.chartDataHeaders];
     comments.forEach((comment, index) => allRatingsIndexed.push([index + 1, comment.rating]));
     
-    // create an array of current properties tto be used by Comments, reset values in the form 
+    // set new states on submit
     this.setState({
       comments: comments,
       formControls: {
@@ -107,7 +104,7 @@ class CustomerFeedback extends React.Component {
     return (
       <div className="slab">
         <div className="container">
-          <h1 className="below-16">Customerr feedback</h1>
+          <h1 className="below-16">Customer feedback</h1>
           <div className="row">
             <div className="col-md-7">
               <form onSubmit={this.handleSubmit}>      
